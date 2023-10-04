@@ -5,5 +5,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def code():
-    context = {"Message": "Paste your code here"}
+    context = {
+        "message": "Paste your Python Code 🐍",
+    }
     return render_template("code_input.html", **context)
