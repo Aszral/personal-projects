@@ -6,6 +6,16 @@
 
 {% block content %}
 <form>
-    <textarea class="code" name="code" placeholder="Paste your Python code here">{{ code }}</textarea>
+    <textarea class="code" name="code" placeholder="Paste your Python code here">
+    {{ code }}
+    </textarea>
+    <div class="controls">
+        <button formmethod="post" formaction="{{ url_for('reset_session')}}">
+            Resets Session ♻️
+        </button>
+        <button formmethod="post" formaction="{{ url_for('save_code')}}">
+            Save Code 💾
+        </button>
+    </div>
     <form>
         {% endblock content %}
