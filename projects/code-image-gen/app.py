@@ -10,9 +10,12 @@ PLACEHOLDER_CODE = "print('Hello World!')"
 def code():
     if session.get("code") is None:
         session["code"] = PLACEHOLDER_CODE
+    lines = session["code"].split("\n")
     context = {
         "message": "Paste your Python Code 🐍",
         "code": session["code"],
+        "num_lines": len(lines),
+        "max_chars": len(max(lines, key=len)),
     }
     return render_template("code_input.html", **context)
 
